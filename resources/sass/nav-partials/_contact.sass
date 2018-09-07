@@ -1,0 +1,41 @@
+#contact 
+  background-color: $secondary
+  padding-top: 4rem
+  h3 
+    color: $light
+  #reseaux 
+    #img
+      height: 148px
+      background-image: url('/images/profil.jpg')
+      background-position: 50% 22%
+    ul // reseaux sociaux
+      padding-left: 0
+      margin-top: 1rem
+      margin-right: -100px // permet d'éviter un retour à la ligne
+      li 
+        display: inline-block
+        margin-right: 1rem
+        i 
+          font-size: 3rem
+          color: $secondary-act
+  #form-contact 
+    input, button, textarea
+      border-radius: 0
+      color: $light
+      &::placeholder
+        color: rgba(255, 255, 255, 0.5)
+    input, textarea
+      border: 0
+      background-color: #5B5974
+      width: 100%
+    button
+      display: block
+      margin-left: auto
+      margin-top: 1rem
+      padding: 0.7rem 1.2rem !important
+  #end-footer 
+    padding: 1.5rem
+    background-color: $primary
+    color: $light
+    margin-top: 2rem
+    text-align: center

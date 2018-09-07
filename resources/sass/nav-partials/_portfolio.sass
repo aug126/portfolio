@@ -1,0 +1,34 @@
+#portfolio
+  padding-top: 3rem
+  padding-bottom: 4rem
+  img 
+    width: 100%
+  .col 
+    padding-top: 15px
+    padding-bottom: 15px
+  #contact-cheat 
+    margin-top: -115px
+    margin-bottom: 115px
+  .img-content
+    overflow: hidden
+    position: relative
+    img 
+      transition: transform .3s ease
+    &:hover img
+      transform: scale(1.2)
+    .projet-info
+      background-color: rgba(0, 0, 0, 0.6)
+      color: $light
+      text-align: center
+      position: absolute 
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      opacity: 0
+      transition: opacity .3s ease
+      h3 
+        margin-top: 2rem
+    &:hover .projet-info
+      opacity: 1
+

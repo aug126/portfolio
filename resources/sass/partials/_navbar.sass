@@ -1,0 +1,41 @@
+#navbar 
+  padding-top: 0
+  padding-bottom: 0
+  border-bottom: 3px solid $info
+  #brand
+    font-size: 1.5rem
+    .entite
+      color: $info
+      font-weight: bold
+      font-size: 1.7rem
+  li 
+    transition: all .3s ease-in-out
+    //margin-right: 0.5rem
+    &:hover
+      background-color: $secondary-act
+  a 
+    line-height: 2.2rem !important
+    padding-left: 1rem
+    padding-right: 1rem
+    // &:hover  // met un background active au hover
+      // background-color: $secondary-act
+  &>div#navbarNavDropdown>ul 
+    width: 100%
+    justify-content: center
+    a.active 
+      background-color: $secondary-act
+  #lang
+    >a
+      color: rgba(255, 255, 255, 0.5)
+      width: max-content
+      // padding-left: 0
+      &:hover 
+        color: rgba(255, 255, 255, 0.75)
+    div.dropdown-menu>a:hover 
+        color: white
+        background-color: $secondary-act
+    &>.dropdown-menu>a.active
+      font-weight: bold
+      background-color: $secondary
+      color: white
+    
