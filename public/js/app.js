@@ -13689,7 +13689,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
@@ -13698,8 +13698,10 @@ module.exports = __webpack_require__(36);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_scroll_js__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_scroll_js__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_scroll_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__modules_scroll_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_style_typing__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_style_typing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__modules_style_typing__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -13721,6 +13723,7 @@ __webpack_require__(12);
 // const app = new Vue({
 //     el: '#app'
 // });
+
 
 
 
@@ -35958,46 +35961,184 @@ module.exports = function spread(callback) {
 /* 36 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
-/***/ (function(module, exports) {
-
-var arrayLinks = document.querySelectorAll('#navbar>div.collapse>ul>li>a');
+var arrayLinks = document.querySelectorAll("#navbar>div.collapse>ul>li>a");
 
 Array.from(arrayLinks).forEach(function (link) {
-    link.addEventListener('click', function () {
+    link.addEventListener("click", function () {
         clickLink(link);
     });
 });
+
 var clickLink = function clickLink(link) {
     var toTop;
     event.preventDefault();
     toTop = document.querySelector(link.hash).offsetTop;
-    if (link.hash == '#home') toTop = 0;
+    if (link.hash == "#home") toTop = 0;
     window.scroll({
         top: toTop,
         behavior: "smooth"
     });
 };
+
+// display animations with scroll
+var titres = Array.from(document.querySelectorAll("h2"));
+var aboutItems = Array.from(document.querySelectorAll("#about .item"));
+var portfolioItems = Array.from(document.querySelectorAll("#portfolio .item"));
+var actiItems = Array.from(document.querySelectorAll("#mes-acti  .item"));
+console.log(actiItems);
+document.addEventListener("scroll", function () {
+    var scroll = document.querySelector("body").scrollTop;
+    titres.forEach(function (titre) {
+        if (scroll > titre.offsetTop - 650) {
+            titre.classList = "animated bounceInLeft";
+            var timeTrans = 500;
+            switch (titre) {
+                case titres[0]:
+                    setTimeout(function () {
+                        aboutItems.forEach(function (element) {
+                            element.classList = "col-4 animated fadeIn";
+                        });
+                    }, timeTrans);
+                    break;
+                case titres[1]:
+                    portfolioItems.forEach(function (element) {
+                        setTimeout(function () {
+                            // element.classList = "img-content animated bounceIn";
+                            element.classList = "img-content animated zoomIn faster";
+                        }, timeTrans += 100);
+                    });
+                    break;
+                case titres[2]:
+                    setTimeout(function () {
+                        actiItems.forEach(function (element) {
+                            element.classList = "animated fadeIn";
+                        });
+                    }, timeTrans);
+                    break;
+            }
+        } else if (scroll < 50) {
+            titres.forEach(function (titre) {
+                titre.classList = "hide";
+            });
+            aboutItems.forEach(function (item) {
+                item.classList = "col-4 hide";
+            });
+            portfolioItems.forEach(function (item) {
+                item.classList = "img-content hide";
+            });
+            actiItems.forEach(function (item) {
+                item.classList = "hide";
+            });
+        }
+    });
+});
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+/* 
+  - Récupère tous les éléments avec la classe "typing-anim".
+  - Met le contenu qui se trouve dans data-content dans la balise.
+  - Utilise un speed (vitesse de frappe) et un délai de départ récupéré sur data-speed et data-delay)
+  - Crée des groupes (data-group) avec des ordres d'exécutions (1.1 s'execute puis 1.2 s'execute. 1.1 commence en même temps que 2.1)
+*/
+var clignoteState = false;
+var clignote = function clignote(element, time, color) {
+    if (!clignoteState) {
+        element.style.borderRightColor = color;
+        return;
+    }
+    setTimeout(function () {
+        if (element.style.borderRightColor == 'transparent') element.style.borderRightColor = color;else element.style.borderRightColor = 'transparent';
+        clignote(element, 500, color);
+    }, time);
+};
+var animTyping = function animTyping(element, delay, speed) {
+    var text = element.dataset.content;
+    var speed_init = speed;
+    clignoteState = true;
+    clignote(element, 500, "black");
+
+    var _loop = function _loop(key) {
+        setTimeout(function () {
+            clignoteState = false;
+            element.innerHTML += text[key];
+        }, delay + (speed += speed_init));
+    };
+
+    for (var key in text) {
+        _loop(key);
+    }
+};
+
+/* Fonction pour créer les groupes d'éléments à animer en fonction de leur ordre */
+var createGroups = function createGroups(elementsList) {
+    /* tableau de tableaux pour stocker les groupes et les ordres dans chaque groupe. */
+    var groups = Array();
+    /*__ Début Déclaration fonctions */
+    /* pour chaque group, ajouter un tableau */
+    // vérifie si on a bien mis data-group. Si groupe existe pas, on le rajoute dans le tableau
+    var getGroup = function getGroup(dataset) {
+        if (!dataset.group) {
+            // comportement par défault pas encore défini
+            console.log("il faut spécifier le groupe de l'animation avec data-group");
+            return 0;
+        }
+        var group = dataset.group[0];
+        if (group > groups.length) {
+            groups[group] = Array();
+        };
+        return group;
+    };
+    var getOrder = function getOrder(dataset) {
+        return dataset.group[2];
+    };
+    /*__ Fin Déclaration fonctions */
+
+    // Trie tous les groupes et les ordones
+    Array.from(elementsList).forEach(function (element) {
+        var group = getGroup(element.dataset);
+        if (group) {
+            var order = getOrder(element.dataset);
+            groups[group][order] = element;
+        }
+    });
+    return groups;
+};
+
+var displayAnimOrder = function displayAnimOrder(group) {
+    var delay;
+    var nbChar;
+    var delay_elem;
+    group.forEach(function (element, index) {
+        var speed = parseInt(element.dataset.speed);
+        speed = speed ? speed : 100;
+        delay_elem = parseInt(element.dataset.delay);
+        delay_elem = delay_elem ? delay_elem : 0;
+        nbChar = element.dataset.content.length;
+        if (index == 1) delay = delay_elem;
+        animTyping(element, delay, speed);
+        delay += speed * nbChar + delay_elem;
+    });
+};
+
+var displayAnimGroup = function displayAnimGroup(groups) {
+    groups.forEach(function (group) {
+        displayAnimOrder(group);
+    });
+};
+
+var elements = document.getElementsByClassName('typing-anim');
+elements[Array.from(elements).length - 1].style.borderRight = "solid black 3px";
+var groups = createGroups(elements);
+displayAnimGroup(groups);
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
