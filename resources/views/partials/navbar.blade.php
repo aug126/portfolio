@@ -20,6 +20,9 @@
                 <a class="nav-link" href="#portfolio">{{strtoupper('Portfolio')}}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#mes-acti">{{strtoupper('Mes Activites')}}<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#contact-cheat">{{strtoupper('Contact')}}<span class="sr-only">(current)</span></a>
             </li>
         </ul>

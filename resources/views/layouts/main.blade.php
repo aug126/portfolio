@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/css/app.css">
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
-    <body data-spy="scroll" data-target="#navbar" data-offset="50">
+    <body data-spy="scroll" data-target="#navbar" data-offset="200">
         @section('navigation')
             @include('partials.navbar')
         @show

@@ -4,9 +4,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+window.$ = window.jQuery = require('jquery')
 
-// window.Vue = require('vue');
+require('./smoothscroll')
+
+require('bootstrap')
+
+window.Vue = require('vue')
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -14,11 +18,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
+/* eslint-disable no-undef, no-unused-vars */
+const app = new Vue({
+  el: '#app'
+})
 
-// const app = new Vue({
-//     el: '#app'
-// });
-
-import './modules/scroll.js';
-import './modules/style-typing'
