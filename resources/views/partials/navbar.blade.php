@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#home">{{strtoupper('Accueil')}}<span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="#home-cheat">{{strtoupper('Accueil')}}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#about">{{strtoupper('A Propos')}}<span class="sr-only">(current)</span></a>
@@ -19,9 +19,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#portfolio">{{strtoupper('Portfolio')}}<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#mes-acti">{{strtoupper('Mes Activites')}}<span class="sr-only">(current)</span></a>
-            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="#mes-acti">{{strtoupper('Evenements')}}<span class="sr-only">(current)</span></a>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="#contact-cheat">{{strtoupper('Contact')}}<span class="sr-only">(current)</span></a>
             </li>

@@ -35981,11 +35981,10 @@ var clickLink = function clickLink(link) {
 };
 
 // display animations with scroll
-var titres = Array.from(document.querySelectorAll("h2"));
+var titres = Array.from(document.querySelectorAll("h2.hide"));
 var aboutItems = Array.from(document.querySelectorAll("#about .item"));
 var portfolioItems = Array.from(document.querySelectorAll("#portfolio .item"));
 var actiItems = Array.from(document.querySelectorAll("#mes-acti  .item"));
-console.log(actiItems);
 document.addEventListener("scroll", function () {
     var scroll = document.querySelector("body").scrollTop;
     titres.forEach(function (titre) {
@@ -36130,7 +36129,9 @@ var displayAnimGroup = function displayAnimGroup(groups) {
 };
 
 var elements = document.getElementsByClassName('typing-anim');
-elements[Array.from(elements).length - 1].style.borderRight = "solid black 3px";
+var lastElem = elements[Array.from(elements).length - 1];
+lastElem.style.borderRight = "solid black 3px";
+lastElem.style.paddingLeft = "5px";
 var groups = createGroups(elements);
 displayAnimGroup(groups);
 

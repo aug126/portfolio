@@ -1,6 +1,6 @@
 <section id="mes-acti">
     <div class="presentation container">
-        <h2 class="hide">Mes Activités</h2>
+        <h2 class="hide">Evénements</h2>
         <p class="hide item">Je travaille à mi-temps à <a href="www.molengeek.com">molengeek</a> en tant que développeur web. Sur le coté je continue à développer mes compétences à <a
                 href="">l'école 19</a> et par moi même.</p>
         <p class="hide item">Occasionnellement je participe à des événements que vous pouvez découvrir ci-dessous :</p>

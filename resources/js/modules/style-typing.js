@@ -90,6 +90,8 @@ var displayAnimGroup = (groups) => {
 }
 
 let elements = document.getElementsByClassName('typing-anim');
-elements[Array.from(elements).length - 1].style.borderRight = "solid black 3px"
+let lastElem = elements[Array.from(elements).length - 1];
+lastElem.style.borderRight = "solid black 3px";
+lastElem.style.paddingLeft = "5px";
 var groups = createGroups(elements);
 displayAnimGroup(groups);
