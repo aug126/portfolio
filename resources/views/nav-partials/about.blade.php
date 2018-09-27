@@ -2,12 +2,19 @@
   <div class="container">
     <h2 class="hide">{{strtoupper('A Propos')}}</h2>
     <div class="row">
-      <div class="col-4 hide item" id="test1">
-        <img src="/images/about-bg-1.png" alt="">
-        <span><i class="fas fa-user"></i></span>
-        <h3>Moi</h3>
-        <p>Je m'appelle Augustin Doat, je suis développeur web ...</p>
+    @foreach ($abouts as $about)
+    <div class="col-4 hide item" id="test1">
+      <img src="/images/about-bg-1.png" alt="">
+      <span><i class="fas fa-user"></i></span>
+      <h3>Moi {{$loop->index + 1}}</h3>
+      <p>Je m'appelle Augustin Doat, je suis développeur web ...</p>
+    </div>
+      @if (($loop->index + 1) % 3 == 0)
       </div>
+      <div class="row">
+      @endif
+        
+    @endforeach
       <div class="col-4 hide item">
         <span><i class="fas fa-laptop"></i></span>
         <h3>Sites</h3>

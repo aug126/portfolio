@@ -1,0 +1,1 @@
+{{-- Le nombre est fixé à 6 pour le moment --}}
