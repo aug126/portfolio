@@ -17,7 +17,7 @@ class CreateAboutsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->char('title');
-            $table->string('text');
+            $table->string('text', 1000);
             $table->char('icon');
             $table->char('lang', 10)->default('fr');
             $table->unsignedInteger('about_id')->nullable();

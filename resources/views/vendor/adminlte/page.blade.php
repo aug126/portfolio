@@ -50,7 +50,8 @@
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span>
+                    {{-- <span class="sr-only">{{ trans('adminlte::adminlte.toggle_navigation') }}</span> --}}
+                    <i class="fas fa-bars"></i>
                 </a>
             @endif
                 <!-- Navbar Right Menu -->

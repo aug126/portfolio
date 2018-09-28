@@ -29,6 +29,7 @@
                 <textarea class="form-control" name="text">{{$about->text}}</textarea>
             </div>
             <button class="btn btn-primary" type="submit">Modifier</button>
+            <a class="btn btn-danger" href="{{route('about.index')}}">Annuler</a>
             </form>
         </div>
     </div>    

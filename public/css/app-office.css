@@ -8,3 +8,11 @@
   margin-bottom: 2rem;
 }
 
+#dashboard .mt-2 {
+  margin-top: 1rem;
+}
+
+#dashboard .main-header .sidebar-toggle:before {
+  content: '';
+}
+

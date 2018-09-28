@@ -12,11 +12,12 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::redirect('/portfolio', '/');
 
 Route::redirect('admin', 'dashboard');
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::resource('/admin/about', 'AdminAboutController');
 Route::resource('/admin/projet', 'AdminPortfolioController');

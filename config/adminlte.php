@@ -112,25 +112,25 @@ return [
         [
             'text'        => 'A Propos',
             'url'         => 'admin/about',
-            'icon'        => 'user',
+            'icon'        => 'fas fa-user',
             // 'label'       => 4,
             'label_color' => 'success',
         ],
         [
             'text'        => 'Portfolio',
             'url'         => 'admin/portfolio',
-            'icon'        => 'briefcase',
+            'icon'        => 'fas fa-briefcase',
         ],
         [
             'text'        => 'Reseaux',
             'url'         => 'admin/networks',
-            'icon'        => 'twitter',
+            'icon'        => 'fab fa-twitter',
         ],
         'FRONT',
         [
             'text'        => 'Voir Site',
-            'url'         => '/',
-            'icon'        => 'globe'
+            'url'         => '/portfolio',
+            'icon'        => 'fas fa-globe'
         ]
     ],
 

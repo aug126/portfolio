@@ -25,7 +25,7 @@ class AdminAboutController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.about.about-create');
     }
 
     /**
@@ -36,7 +36,12 @@ class AdminAboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $about = new About;
+        $about->title = $request->title;
+        $about->text = $request->text;
+        $about->icon = $request->icon;
+        $about->save();
+        return redirect(route('about.index'));
     }
 
     /**
@@ -87,6 +92,7 @@ class AdminAboutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        About::find($id)->delete();
+        return redirect(route('about.index'));
     }
 }

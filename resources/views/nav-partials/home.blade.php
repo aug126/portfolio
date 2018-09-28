@@ -5,8 +5,8 @@
         <h1>Augustin Doat : </h1>
         <h2>Développeur Web Freelance</h2>
         <p>
-          <span class="typing-anim" data-delay="500" data-speed="50" data-group="1.1" data-content="Développeur full stack,"></span>
-          <span class="typing-anim" data-delay="2000" data-speed="60" data-group="1.2" data-content="  je réalise des sites et applications web/mobile."></span>
+          <span class="typing-anim" data-delay="1000" data-speed="50" data-group="1.1" data-content="Développeur full stack,"></span>
+          <span class="typing-anim" data-delay="4000" data-speed="40" data-group="1.2" data-content="  je réalise des sites et applications web/mobile."></span>
         </p>
       </div>
     </div>

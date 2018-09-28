@@ -5,9 +5,16 @@
 
 @section('content_header')
     <h1>Contenu de <b>A Propos</b></h1>
+@stop
 
-
-    <div class="row">
+@section('content')
+    <a class="btn btn-primary" href="{{route('about.create')}}">Nouveau</a>
+    <select name="" class="btn" id="filtreAbout">
+        <option value="">Actuels</option>
+        <option value="">Corbeille</option>
+        <option value="">Tous</option>
+    </select>
+    <div class="row mt-2">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -24,12 +31,20 @@
                         </tr>
                         @foreach ($abouts as $about)
                             <tr>
-                            <td class="text-center"><i class="fa {{$about->icon}}"></i></td>
+                            <td class="text-center"><i class="fas {{$about->icon}}"></i></td>
                             <td>{{$about->title}}</td>
-                                <td>{{$about->text}}</td>
+                            <td>{{$about->text}}</td>
                             <td class="text-center">{{$about->lang}}</td>
-                            <td><a class="btn btn-warning" href="{{route('about.edit', $about->id)}}"><i class="fa fa-edit"></i></a></td>
-                            <td><button class="btn btn-primary"><i class="fa fa-eye"></i></button></td>
+                            <td>
+                                <a class="btn btn-warning" href="{{route('about.edit', $about->id)}}"><i class="fa fa-edit"></i></a>
+                            </td>
+                            <td>
+                            <form action="{{route('about.destroy', $about->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                            </form>
+                            </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -40,8 +55,4 @@
             <!-- /.box -->
         </div>
     </div>
-@stop
-
-@section('content')
-    
 @stop
