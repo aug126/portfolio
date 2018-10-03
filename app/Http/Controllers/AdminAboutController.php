@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AboutValidate;
 use App\About;
 
 class AdminAboutController extends Controller
@@ -34,14 +35,14 @@ class AdminAboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AboutValidate $request)
     {
         $about = new About;
         $about->title = $request->title;
         $about->text = $request->text;
         $about->icon = $request->icon;
         $about->save();
-        return redirect(route('about.index'));
+        return redirect(route('about.index'))->with('success', 'Un nouvel élément a bien été créé.');
     }
 
     /**
@@ -74,14 +75,14 @@ class AdminAboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AboutValidate $request, $id)
     {
         $about = About::find($id);
         $about->icon = $request->icon;
         $about->title = $request->title;
         $about->text = $request->text;
         $about->save();
-        return redirect(route('about.index'));
+        return redirect(route('about.index'))->with('success', "L'élément a bien été modifié");
     }
 
     /**
@@ -93,6 +94,6 @@ class AdminAboutController extends Controller
     public function destroy($id)
     {
         About::find($id)->delete();
-        return redirect(route('about.index'));
+        return redirect(route('about.index'))->with('success', "L'élément a bien été supprimé");
     }
 }

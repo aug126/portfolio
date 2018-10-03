@@ -1,6 +1,5 @@
 @extends('adminlte::page')
 @section('css')
-    <link rel="stylesheet" href="/css/app-office.css">
 @stop
 
 @section('content_header')
@@ -8,6 +7,17 @@
 @stop
 
 @section('content')
+
+
+{{-- provisoire !  --}}
+<script>
+    function allowDrop(ev) {
+    ev.preventDefault();
+    console.log(ev.currentTarget);
+    ev.currentTarget.style.marginTop = "20px";
+}
+</script>
+
     <a class="btn btn-primary" href="{{route('about.create')}}">Nouveau</a>
     <select name="" class="btn" id="filtreAbout">
         <option value="">Actuels</option>
@@ -24,13 +34,15 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody><tr>
+                            <th></th>
                             <th class="text-center">Icone</th>
                             <th>Titre</th>
                             <th>Texte</th>
                             <th class="text-center">Langue</th>
                         </tr>
                         @foreach ($abouts as $about)
-                            <tr>
+                        <tr ondragover="allowDrop(event)">
+                            <td class="p-2 drag-drop"><i class="fas fa-ellipsis-v"></i></td>
                             <td class="text-center"><i class="fas {{$about->icon}}"></i></td>
                             <td>{{$about->title}}</td>
                             <td>{{$about->text}}</td>
@@ -39,13 +51,13 @@
                                 <a class="btn btn-warning" href="{{route('about.edit', $about->id)}}"><i class="fa fa-edit"></i></a>
                             </td>
                             <td>
-                            <form action="{{route('about.destroy', $about->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
+                                <form action="{{route('about.destroy', $about->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
-                            </tr>
+                        </tr>
                         @endforeach
                         </tbody>
                     </table>

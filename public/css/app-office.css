@@ -12,7 +12,24 @@
   margin-top: 1rem;
 }
 
+#dashboard .p-2 {
+  padding: 1rem;
+}
+
 #dashboard .main-header .sidebar-toggle:before {
   content: '';
+}
+
+#dashboard table.table .drag-drop {
+  color: grey;
+}
+
+#dashboard #message-alert {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transition-delay: 0.5s, 0s;
+          transition-delay: 0.5s, 0s;
+  -webkit-transition-property: margin-bottom, opacity;
+  transition-property: margin-bottom, opacity;
 }
 

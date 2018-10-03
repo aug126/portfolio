@@ -3,6 +3,7 @@
 @section('adminlte_css')
     <link rel="stylesheet"
           href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
+    <link rel="stylesheet" href="/css/app-office.css">
     @stack('css')
     @yield('css')
 @stop
@@ -110,6 +111,16 @@
 
             <!-- Content Header (Page header) -->
             <section class="content-header">
+                @if (session('error'))
+                <div class="alert alert-danger" id="message-alert">
+                        {{ session('error') }}
+                    </div>                                        
+                @endif
+                @if (session('success'))
+                <div class="alert alert-success" id="message-alert">
+                        {{ session('success') }}
+                    </div>                                        
+                @endif
                 @yield('content_header')
             </section>
 
@@ -133,6 +144,7 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <script src="/js/app-office.js"></script>
     @stack('js')
     @yield('js')
 @stop
