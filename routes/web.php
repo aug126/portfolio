@@ -14,11 +14,13 @@
 Route::get('/', 'MainController@index');
 Route::redirect('/portfolio', '/');
 
-Route::redirect('admin', 'dashboard');
 Auth::routes();
 
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+Route::group(['middleware' => ['auth']], function () {
+    Route::redirect('/admin', '/dashboard');
 
-Route::resource('/admin/about', 'AdminAboutController');
-Route::resource('/admin/projet', 'AdminPortfolioController');
-Route::resource('/admin/networks', 'AdminNetworksController');
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('/admin/about', 'AdminAboutController');
+    Route::resource('/admin/projet', 'AdminPortfolioController');
+    Route::resource('/admin/networks', 'AdminNetworksController');
+});

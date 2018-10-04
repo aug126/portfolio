@@ -24,9 +24,9 @@ class AboutValidate extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'text' => 'required',
-            'icon' => 'required'
+            'title' => 'required|string|max:255',
+            'text' => 'required|max:1000',
+            'icon' => 'required|max:50'
         ];
     }
 }

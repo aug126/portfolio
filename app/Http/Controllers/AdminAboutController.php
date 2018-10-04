@@ -96,4 +96,20 @@ class AdminAboutController extends Controller
         About::find($id)->delete();
         return redirect(route('about.index'))->with('success', "L'élément a bien été supprimé");
     }
+
+    public function apiToGet(Request $request) {
+        if ($request->toGet == 'actual')
+        {
+            return About::all();
+        }
+        else if ($request->toGet == 'trash')
+        {
+            
+        }
+        else if ($request->toGet == 'all')
+        {
+
+        }
+        return ($request->toGet);
+    }
 }

@@ -58,6 +58,12 @@
                         </span>
                     @endif
                 </div>
+                
+                <select name="role" id="role-register">
+                    <option value="super_admin"></option>
+                    <option value="admin"></option>
+                    <option value="member" selected></option>
+                </select>
                 <button type="submit"
                         class="btn btn-primary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.register') }}</button>

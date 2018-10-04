@@ -9,7 +9,7 @@
 @section('content')
 
 
-{{-- provisoire !  --}}
+{{-- provisoire test !  --}}
 <script>
     function allowDrop(ev) {
     ev.preventDefault();
@@ -20,10 +20,11 @@
 
     <a class="btn btn-primary" href="{{route('about.create')}}">Nouveau</a>
     <select name="" class="btn" id="filtreAbout">
-        <option value="">Actuels</option>
-        <option value="">Corbeille</option>
-        <option value="">Tous</option>
+        <option value="actual">Actuels</option>
+        <option value="trash">Corbeille</option>
+        <option value="all">Tous</option>
     </select>
+
     <div class="row mt-2">
         <div class="col-xs-12">
             <div class="box">

@@ -1,5 +1,6 @@
+import './about/about-index.js';
+
 var messageAlert = document.getElementById('message-alert');
-console.log('bien affiché');
 if (messageAlert) {
     setTimeout(() => {
         var style = window.getComputedStyle(messageAlert);

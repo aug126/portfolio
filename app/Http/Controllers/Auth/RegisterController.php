@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
-
+    
     /**
      * Create a new controller instance.
      *
@@ -39,7 +40,10 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
+    
+    public function showRegistrationForm() {
+        $roles = Role::all();
+    }
     /**
      * Get a validator for an incoming registration request.
      *

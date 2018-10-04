@@ -35,6 +35,7 @@
                         <span class="help-block">{{ $errors->first('text') }}</span>
                     @endif
                 </div>
+                
                 <button class="btn btn-primary" type="submit">Créer</button>
                 <a class="btn btn-danger" href="{{route('about.index')}}">Annuler</a>
             </form>
